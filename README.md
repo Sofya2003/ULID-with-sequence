@@ -41,7 +41,7 @@ The modified specification is more secure, because it's impossible to find a val
 * Calculation of random parts in advance
 * Ability to shift the date and time in timestamp of ULIDs for each database table separately (for information security reasons)
 * Multithreading
-* New ULID data type in DBMS
+* New ULID data type in DBMS: ID(timestamp_length, sequence_length, randomness_length). The lengths of the parts must be expressed in bits. Default values: 48, 15, and 65
 * C ++ implementation
 * True randomness
 
