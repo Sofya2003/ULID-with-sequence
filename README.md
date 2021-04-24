@@ -25,12 +25,15 @@ are intended for use as surrogate keys:
 ULID with sequence is calculated as
 
     ttttttttttsssrrrrrrrrrrrrr
+    or
+    ttttttttttsssrrrrrrrrrrrxx
 
     where
 
     t is Timestamp (10 characters or 48 bit), UNIX-time in milliseconds (UTC)
     s is Sequence (3 characters or 15 bit), generated for each ULID with the same database and Timestamp
-    r is Randomness (13 characters or 65 bit), generated in advance by true random number generator, separately for each ULID
+    r is Randomness (13/11 characters or 65/55 bit), generated in advance by true random number generator, separately for each ULID
+    x is Entity type (2 characters or 10 bit)
 
 The string representation in [Crockford's base32](https://www.crockford.com/base32.html) is used.
 ## Implementation
