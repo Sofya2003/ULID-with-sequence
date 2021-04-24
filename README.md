@@ -24,9 +24,9 @@ are intended for use as surrogate keys:
 
 ULID with sequence is calculated as
 
-    ttttttttttsssrrrrrrrrrrrrr
+    ttttttttttsssrrrrrrrrrrrrr (implemented)
     or
-    ttttttttttsssrrrrrrrrrrrxx
+    ttttttttttsssrrrrrrrrrrrxx (planned)
 
     where
 
