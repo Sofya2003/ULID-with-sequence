@@ -33,7 +33,7 @@ ULID with sequence is calculated as
     t is Timestamp (10 characters or 48 bit), UNIX-time in milliseconds (UTC)
     s is Sequence (3 characters or 15 bit), generated for each ULID with the same database and Timestamp
     r is Randomness (13/11 characters or 65/55 bit), generated in advance by true random number generator, separately for each ULID
-    x is Unified entity type (2 characters or 10 bit), corresponding to Schema.org vocabulary
+    x is Entity type (2 characters or 10 bit), corresponding to the database tables
 
 The string representation in [Crockford's base32](https://www.crockford.com/base32.html) is used.
 ## Implementation
