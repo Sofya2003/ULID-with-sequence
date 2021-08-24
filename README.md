@@ -58,7 +58,7 @@ ULID with sequence is calculated as
 
     But string format without hyphens is preferable.
 
-    The storage format (text, binary, UUID or integer) in the database depends on the DBMS, and it is not prescribed.
+    The storage format (text, binary, UUID, integer, byte array, JSONB) in the database depends on the DBMS and implementation, and it is not prescribed.
 
 The string representation in [Crockford's base32](https://www.crockford.com/base32.html) is used.
 ## Implementation
