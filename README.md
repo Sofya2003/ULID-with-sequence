@@ -30,10 +30,34 @@ ULID with sequence is calculated as
 
     where
 
-    t is Timestamp (10 characters or 48 bit), UNIX-time in milliseconds (UTC)
-    s is Sequence (3 characters or 15 bit), generated for each ULID with the same database and Timestamp
-    r is Randomness (13/11 characters or 65/55 bit), generated in advance by true random number generator, separately for each ULID
-    x is Entity type (2 characters or 10 bit), corresponding to the database tables
+    t is Clock sequence (10 characters or 48 bits), UNIX-time (UTC) in milliseconds, big-endian
+    s is Sequence (3 characters or 15 bits), generated for each ULID with the same database table and Timestamp
+    r is Randomness (13/11 characters or 65/55 bits), generated in advance by quantum-mechanical TRNG or CSPRNG, separately for each ULID
+    x is Entity type (2 characters or 10 bits), pointing to one database table with ULID as a primary key
+
+
+
+
+    Long ULID for high-load critical systems and IoT (planned):
+
+    160 bits or 32 characters in Crockford's base32
+    0        1         2         3 
+    12345678901234567890123456789012
+    nnnnnnnnnnnnsssrrrrrrrrrrrrrrrxx
+
+    n is Timestamp (12 characters or 60 bits), UNIX-time (UTC) in 100 ns resolution, big-endian
+    s is Clock sequence (3 characters or 15 bits), generated for each ULID with the same database table and Timestamp
+    r is Randomness (15 characters or 75 bits), generated in advance by quantum-mechanical TRNG or CSPRNG, separately for each ULID
+    x is Local entity type (2 characters or 10 bits), pointing to one database table with long ULID as a primary key
+
+    Strict monotonicity is not guaranteed, especially for the leap second.
+
+    The 8-4-4-4-12 format of UUID with 4 hyphens may only be used in textual representation for backward compatibility:
+    nnnnnnnn-nnnn-sssr-rrrr-rrrrrrrrrrxx
+
+    But string format without hyphens is preferable.
+
+    The storage format (text, binary, UUID or integer) in the database depends on the DBMS, and it is not prescribed.
 
 The string representation in [Crockford's base32](https://www.crockford.com/base32.html) is used.
 ## Implementation
