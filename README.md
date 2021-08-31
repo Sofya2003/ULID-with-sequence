@@ -47,9 +47,9 @@ ULID with sequence is calculated as
 
     n is Timestamp (12 characters or 60 bits), UNIX-time (UTC) in 100 ns resolution, big-endian
     s is Clock sequence (3 characters or 15 bits), generated for each ULID with the same database table and Timestamp
-    r is Randomness (15 characters or 75 bits), generated in advance by quantum-mechanical TRNG or CSPRNG, separately for each ULID.
-         Last several characters of Randomness may be populated with implementation defined ID (for example, hash) of ULID generator.
-    x is Local entity type (2 characters or 10 bits), pointing to one database table with long ULID as a primary key
+    r is Randomness (15 characters or 75 bits), generated in advance by quantum-mechanical TRNG or CSPRNG, separately for each ULID
+         Last several characters of Randomness may be populated with implementation defined ID (for example, hash) of ULID generator
+    x is Local entity type (2 characters or 10 bits), pointing to one database table with long ULID as a primary key, specifically to anchor in Anchor modeling, hub in Data vault modeling, dimension table in Star schema. In Anchor modeling the anchor name prefix must match the local entity type
 
     Strict monotonicity is not guaranteed, especially for the leap second.
 
