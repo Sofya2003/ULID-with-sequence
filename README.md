@@ -53,7 +53,7 @@ ULID with sequence is calculated as
          specifically to anchor in Anchor modeling, hub in Data vault modeling, dimension table in Star schema.
          In Anchor modeling the anchor name prefix must match the local entity type
 
-    Strict monotonicity is not guaranteed, especially for the leap second.
+    Strict monotonicity is not guaranteed, especially for the leap second. Therefore ULID cannot be used for creation of a clustered index.
 
     The 8-4-4-4-12 format of UUID with 4 hyphens may only be used in textual representation for backward compatibility:
     nnnnnnnn-nnnn-sssr-rrrr-rrrrrrrrrrxx
