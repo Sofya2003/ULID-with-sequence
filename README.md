@@ -45,10 +45,10 @@ ULID with sequence is calculated as
     12345678901234567890123456789012
     nnnnnnnnnnnnsssrrrrrrrrrrrrrrrxx
 
-    n is Timestamp (12 characters or 60 bits), UNIX-time (UTC) in 100 ns resolution, big-endian
-    s is Clock sequence (count) (3 characters or 15 bits), generated for each ULID with the same database table and Timestamp.
+    n is Timestamp (12 characters or 60 bits), UNIX-time (UTC) in 100 ns resolution, big-endian (the same as timestamp in UUID version 1)
+    s is Clock sequence (Count) (3 characters or 15 bits), generated for each ULID with the same database table and Timestamp.
          On overflow ULIDs with the maximum Clock sequence number should be generated until the Timestamp changes
-    r is Randomness (15 characters or 75 bits), generated in advance by quantum-mechanical TRNG or CSPRNG, separately for each ULID
+    r is Randomness (15 characters or 75 bits), generated in advance by quantum-mechanical TRNG or CSPRNG, unique for each ULID
          Last several characters of Randomness may be populated with shard/partition and/or implementation defined ID (for example, hash) of ULID generator
     x is Local entity type (2 characters or 10 bits), pointing to one database table with long ULID as a primary key, 
          specifically to anchor in Anchor modeling, hub in Data vault modeling, dimension table in Star schema.
