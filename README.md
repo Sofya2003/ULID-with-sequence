@@ -1,5 +1,5 @@
 # ULID with sequence
-Universally Unique Lexicographically Sortable Identifiers (ULIDs) with sequence in Python
+Universally Unique Lexicographically Sortable Identifiers (ULIDs) with sequence in GoLang
 are intended for use as surrogate keys:
 * in high performance databases of any type,
 * in [Anchor Modeling](https://en.wikipedia.org/wiki/Anchor_modeling) technique.
@@ -67,11 +67,9 @@ The string representation in [Crockford's base32](https://www.crockford.com/base
 ## Implementation
 The binary format has not been implemented. The implemented string format is great for PostgreSQL and MySQL and satisfactory for Oracle.
 
-Cryptographically secure Python Secrets module is used to generate random part instead of old Python Random module.
+Cryptographically secure GoLang crypto/rand module is used to generate random part.
 ## Usage
-next(ulid)
-## Test
-benchmark()
+fmt.Printeln(<-channel)
 
 The performance is about 5000 ULIDs per second on ordinary PC.
 ## Prior Art
